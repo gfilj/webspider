@@ -46,6 +46,9 @@ public class SSCScheduleTask {
 	        .run();
 	}
 	
+	/**
+	 * 抓取广东11选5
+	 */
 	public void grabGD11TO5(){
 		SSCPageModelPipeline sscPageModelPipeline = new SSCPageModelPipeline();
 		sscPageModelPipeline.setSscRepoFactory(new TJSSCRepoFactory());

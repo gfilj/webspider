@@ -11,4 +11,5 @@ public interface SSCRepoOriginalList {
 	public List<String> getNumList() ;
 
 	public void setNumList(List<String> numList) ;
+	
 }

@@ -1,5 +1,8 @@
 package com.gofoit.webspider.model.builder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.gofoit.webspider.model.SSCRepo;
 
 public class SSCRepoBuilder {
@@ -30,12 +33,19 @@ public class SSCRepoBuilder {
 		sscRepo.setDigit1(digit1);
 		return this;
 	}
-	
 	public static SSCRepoBuilder getInstance(){
 		return new SSCRepoBuilder();
 	}
 	
 	public SSCRepo build(){
+		//make up digistList
+		List<Integer> digitList = new ArrayList<Integer>();
+		digitList.add(sscRepo.getDigit5());
+		digitList.add(sscRepo.getDigit4());
+		digitList.add(sscRepo.getDigit3());
+		digitList.add(sscRepo.getDigit2());
+		digitList.add(sscRepo.getDigit1());
+		sscRepo.setDigitList(digitList);
 		return sscRepo;
 	}
 }

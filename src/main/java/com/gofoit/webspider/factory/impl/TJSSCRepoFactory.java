@@ -10,7 +10,9 @@ import com.gofoit.webspider.model.SSCRepo;
 import com.gofoit.webspider.model.builder.SSCRepoBuilder;
 import com.gofoit.webspider.model.list.SSCRepoOriginalList;
 /**
- * 天津和广东11选5
+ * 天津
+ * 广东11选5
+ * 重庆时时彩
  * @author mac
  *
  */
@@ -25,7 +27,8 @@ public class TJSSCRepoFactory implements SSCRepoFactory{
 			SSCRepoBuilder sscRepoBuilder = SSCRepoBuilder.getInstance();
 			sscRepoBuilder.setIssue(issueList.get(i));
 			int j= i*5;
-				sscRepoBuilder.setDigit5(Integer.parseInt(numList.get(j)))
+			sscRepoBuilder
+				.setDigit5(Integer.parseInt(numList.get(j)))
 				.setDigit4(Integer.parseInt(numList.get(j+1)))
 				.setDigit3(Integer.parseInt(numList.get(j+2)))
 				.setDigit2(Integer.parseInt(numList.get(j+3)))
@@ -34,5 +37,5 @@ public class TJSSCRepoFactory implements SSCRepoFactory{
 		}
 		return sscRepoList;
 	}
-
+	
 }

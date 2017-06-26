@@ -3,6 +3,7 @@ package com.gofoit.webspider.model.list.impl;
 import java.util.List;
 
 import com.gofoit.webspider.factory.impl.CQSSCRepoFactory;
+import com.gofoit.webspider.factory.impl.TJSSCRepoFactory;
 import com.gofoit.webspider.model.list.SSCRepoOriginalList;
 import com.gofoit.webspider.pipeline.SSCPageModelPipeline;
 
@@ -17,11 +18,11 @@ import us.codecraft.webmagic.model.annotation.TargetUrl;
  * @author luchangqing
  *
  */
-@TargetUrl("http://www.cqcp.net/game/ssc/")
+@TargetUrl("http://shishicai.cjcp.com.cn/chongqing/kaijiang/")
 public class CQSSCRepoOriginalList implements SSCRepoOriginalList{
-	@ExtractBy("//div[@id='openlist']/ul/li[@style='width:65px;']/text()")
+	@ExtractBy("//table[@class='kjjg_table']/tbody/tr/td/regex('\\d{11}')")
 	private List<String> issueList;
-	@ExtractBy("//div[@id='openlist']/ul/li[@style='width:80px;']/text()")
+	@ExtractBy("//table[@class='kjjg_table']/tbody/tr/td/div/div/regex('\\d{1}')")
 	private List<String> numList;
 	
 	public List<String> getIssueList() {
@@ -42,9 +43,9 @@ public class CQSSCRepoOriginalList implements SSCRepoOriginalList{
 
 	public static void main(String[] args) {
 		SSCPageModelPipeline sscPageModelPipeline = new SSCPageModelPipeline();
-		sscPageModelPipeline.setSscRepoFactory(new CQSSCRepoFactory());
+		sscPageModelPipeline.setSscRepoFactory(new TJSSCRepoFactory());
 		 OOSpider.create(Site.me(), sscPageModelPipeline, CQSSCRepoOriginalList.class)
-	        .addUrl("http://www.cqcp.net/game/ssc/")
+	        .addUrl("http://shishicai.cjcp.com.cn/chongqing/kaijiang/")
 	        .thread(1)
 	        .run();
     }

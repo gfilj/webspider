@@ -1,5 +1,7 @@
 package com.gofoit.webspider.model;
 
+import java.util.List;
+
 /**
  * 重庆六合彩
  * @author luchangqing
@@ -13,6 +15,7 @@ public class SSCRepo {
 	private int digit3;//十位数字
 	private int digit2;//个位数字
 	private int digit1;//个位数字
+	private List<Integer> digitList;//数字队列
 //	private String beforeThree;//前三
 //	private String middleThree;//中三
 //	private String afterThree;//后三
@@ -52,11 +55,18 @@ public class SSCRepo {
 	public void setDigit1(int digit1) {
 		this.digit1 = digit1;
 	}
+	public List<Integer> getDigitList() {
+		return digitList;
+	}
+	public void setDigitList(List<Integer> digitList) {
+		this.digitList = digitList;
+	}
 	@Override
 	public String toString() {
-		return "SSCRepo [issue=" + issue  + ", digit5=" + digit5 + ", digit4=" + digit4 + ", digit3="
-				+ digit3 + ", digit2=" + digit2 + ", digit1=" + digit1 + "]";
+		return "SSCRepo [issue=" + issue + ", digit5=" + digit5 + ", digit4=" + digit4 + ", digit3=" + digit3
+				+ ", digit2=" + digit2 + ", digit1=" + digit1 + ", digitList=" + digitList + "]";
 	}
+	
 	
 	
 }

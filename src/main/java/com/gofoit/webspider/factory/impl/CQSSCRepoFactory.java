@@ -1,6 +1,7 @@
 package com.gofoit.webspider.factory.impl;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -9,6 +10,12 @@ import com.gofoit.webspider.factory.SSCRepoFactory;
 import com.gofoit.webspider.model.SSCRepo;
 import com.gofoit.webspider.model.builder.SSCRepoBuilder;
 import com.gofoit.webspider.model.list.SSCRepoOriginalList;
+/**
+ * old
+ * 暂已废弃
+ * @author mac
+ *
+ */
 @Repository("CQSSCRepoFactory")
 public class CQSSCRepoFactory implements SSCRepoFactory{
 	public List<SSCRepo> getSSCRepoList(SSCRepoOriginalList sscRepoOriginalList){

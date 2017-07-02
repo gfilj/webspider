@@ -16,9 +16,15 @@ public class SSCRepo {
 	private int digit2;//个位数字
 	private int digit1;//个位数字
 	private List<Integer> digitList;//数字队列
-//	private String beforeThree;//前三
-//	private String middleThree;//中三
-//	private String afterThree;//后三
+	private int type;//彩票类型
+	
+	
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
 	public String getIssue() {
 		return issue;
 	}

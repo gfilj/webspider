@@ -25,7 +25,7 @@ public class TJSSCRepoFactory implements SSCRepoFactory{
 		List<String> numList = sscRepoOriginalList.getNumList();
 		for(int i = 0 ; i < issueList.size();i++){
 			SSCRepoBuilder sscRepoBuilder = SSCRepoBuilder.getInstance();
-			sscRepoBuilder.setIssue(issueList.get(i));
+			sscRepoBuilder.setIssue(issueList.get(i)).setType(sscRepoOriginalList.getType().getType());
 			int j= i*5;
 			sscRepoBuilder
 				.setDigit5(Integer.parseInt(numList.get(j)))

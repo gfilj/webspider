@@ -33,6 +33,10 @@ public class SSCRepoBuilder {
 		sscRepo.setDigit1(digit1);
 		return this;
 	}
+	public SSCRepoBuilder setType(int type) {
+		sscRepo.setType(type);;
+		return this;
+	}
 	public static SSCRepoBuilder getInstance(){
 		return new SSCRepoBuilder();
 	}

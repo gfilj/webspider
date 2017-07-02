@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.gofoit.webspider.factory.impl.TJSSCRepoFactory;
 import com.gofoit.webspider.model.list.SSCRepoOriginalList;
+import com.gofoit.webspider.model.type.SSCTypeEnum;
 import com.gofoit.webspider.pipeline.SSCPageModelPipeline;
 
 import us.codecraft.webmagic.Site;
@@ -25,6 +26,16 @@ public class TJSSCRepoOriginalList implements SSCRepoOriginalList{
 	@ExtractBy("//table[@class='kjjg_table']/tbody/tr/td/div/div/regex('\\d{1}')")
 	private List<String> numList;
 	
+	private SSCTypeEnum type = SSCTypeEnum.TJSSC;
+	
+	public SSCTypeEnum getType() {
+		return type;
+	}
+
+	public void setType(SSCTypeEnum type) {
+		this.type = type;
+	}
+
 	public List<String> getIssueList() {
 		return issueList;
 	}

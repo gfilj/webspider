@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.gofoit.webspider.factory.SSCRepoFactory;
-import com.gofoit.webspider.factory.impl.CQSSCRepoFactory;
 import com.gofoit.webspider.factory.impl.TJSSCRepoFactory;
 import com.gofoit.webspider.model.list.impl.CQSSCRepoOriginalList;
 import com.gofoit.webspider.model.list.impl.GD11TO5RepoOriginalList;
@@ -27,9 +26,9 @@ public class SSCScheduleTask {
 	 */
 	public void grabCQSSC(){
 		SSCPageModelPipeline sscPageModelPipeline = new SSCPageModelPipeline();
-		sscPageModelPipeline.setSscRepoFactory(new CQSSCRepoFactory());
+		sscPageModelPipeline.setSscRepoFactory(new TJSSCRepoFactory());
 		 OOSpider.create(Site.me(), sscPageModelPipeline, CQSSCRepoOriginalList.class)
-	        .addUrl("http://www.cqcp.net/game/ssc/")
+	        .addUrl("http://shishicai.cjcp.com.cn/chongqing/kaijiang/")
 	        .thread(1)
 	        .run();
 	}
@@ -53,8 +52,16 @@ public class SSCScheduleTask {
 		SSCPageModelPipeline sscPageModelPipeline = new SSCPageModelPipeline();
 		sscPageModelPipeline.setSscRepoFactory(new TJSSCRepoFactory());
 		 OOSpider.create(Site.me(), sscPageModelPipeline, GD11TO5RepoOriginalList.class)
-	        .addUrl("http://baidu.lecai.com/lottery/draw/list/23")
+	        .addUrl("http://11xuan5.cjcp.com.cn/guangdong/kaijiang/")
 	        .thread(1)
 	        .run();
+	}
+	/**
+	 * 每5分钟执行的任务
+	 */
+	public void per5MinuteTask(){
+		grabCQSSC();
+		grabTJSSC();
+		grabGD11TO5();
 	}
 }

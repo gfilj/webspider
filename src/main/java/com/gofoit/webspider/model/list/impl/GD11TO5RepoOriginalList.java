@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.gofoit.webspider.factory.impl.TJSSCRepoFactory;
 import com.gofoit.webspider.model.list.SSCRepoOriginalList;
+import com.gofoit.webspider.model.type.SSCTypeEnum;
 import com.gofoit.webspider.pipeline.SSCPageModelPipeline;
 
 import us.codecraft.webmagic.Site;
@@ -18,13 +19,22 @@ import us.codecraft.webmagic.model.annotation.TargetUrl;
  * @author luchangqing
  *
  */
-@TargetUrl("http://baidu.lecai.com/lottery/draw/list/23")
+@TargetUrl("http://11xuan5.cjcp.com.cn/guangdong/kaijiang/")
 public class GD11TO5RepoOriginalList implements SSCRepoOriginalList{
-	@ExtractBy("//table[@id='draw_list']/tbody/tr/td/regex('\\d{8}')")
+	@ExtractBy("//table[@class='kjjg_table']/tbody/tr/td/regex('\\d{10}')")
 	private List<String> issueList;
-	@ExtractBy("//table[@id='draw_list']/tbody/tr/td/span/span/regex('\\d{2}')")
+	@ExtractBy("//table[@class='kjjg_table']/tbody/tr/td/div/div/regex('\\d{2}')")
 	private List<String> numList;
 	
+	private SSCTypeEnum type = SSCTypeEnum.GD11TO5;
+	
+	public SSCTypeEnum getType() {
+		return type;
+	}
+
+	public void setType(SSCTypeEnum type) {
+		this.type = type;
+	}
 	public List<String> getIssueList() {
 		return issueList;
 	}
@@ -45,7 +55,7 @@ public class GD11TO5RepoOriginalList implements SSCRepoOriginalList{
 		SSCPageModelPipeline sscPageModelPipeline = new SSCPageModelPipeline();
 		sscPageModelPipeline.setSscRepoFactory(new TJSSCRepoFactory());
 		 OOSpider.create(Site.me(), sscPageModelPipeline, GD11TO5RepoOriginalList.class)
-	        .addUrl("http://baidu.lecai.com/lottery/draw/list/23")
+	        .addUrl("http://11xuan5.cjcp.com.cn/guangdong/kaijiang/")
 	        .thread(1)
 	        .run();
     }
